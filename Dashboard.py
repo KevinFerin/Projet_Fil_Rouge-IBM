@@ -114,7 +114,7 @@ def print_2d_clusters (wordvector_fit, clf):
     plt.show()
     
     
-file_name = "test.csv"
+file_name = "small_email.csv"
 data = get_cleaned_data(file_name)
 data = remove_punctuation(data)
 data = tokenize(data)
@@ -178,7 +178,7 @@ hex_col = ["#e05f14", "#e0dc14", "#2fe014", "#14d2e0", "#d11141", "#00b159",  "#
      dash.dependencies.Input('min_df', 'value'),
      dash.dependencies.Input('max_df', 'value')])
 def update_figure(chunksize, nb_clusters, min_df, max_df):
-    file_name = "test.csv"
+    file_name = "small_email.csv"
     data = get_cleaned_data(file_name, chunksize=chunksize)
     data = remove_punctuation(data)
     data = tokenize(data)

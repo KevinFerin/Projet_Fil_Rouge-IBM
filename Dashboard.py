@@ -128,7 +128,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
                     html.Div([
-                        html.H1("Projet Fil Rouge IBM, un café ? "),
+                        html.H1("Projet Fil Rouge - IBM"),
                 
                         html.Div([
                             html.H4("Number of clusters"),

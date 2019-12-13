@@ -19,7 +19,7 @@ from nltk.stem import WordNetLemmatizer
 from string import punctuation
 import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, MiniBatchKMeans
 from sklearn.decomposition import PCA
 import plotly.graph_objs as go
 
@@ -91,7 +91,7 @@ def vectorize_messages(messages, min_df=10, max_df = 0.6):
 
 def do_clustering (wordvector_fit, num_cluster = 4) :
 
-    clf = KMeans(n_clusters=num_cluster, 
+    clf = MiniBatchKMeans(n_clusters=num_cluster, 
                 max_iter=50, 
                 init='k-means++',
                 n_init=4)
@@ -99,7 +99,7 @@ def do_clustering (wordvector_fit, num_cluster = 4) :
     
     return clf, labels
     
-def print_2d_clusters (wordvector_fit, clf):
+def print_2d_clusters (wordvector_fit, clf, labels):
     wordvector_fit_2d = wordvector_fit.todense()
     pca = PCA(n_components=2).fit(wordvector_fit_2d)
     datapoint = pca.transform(wordvector_fit_2d)
@@ -116,13 +116,6 @@ def print_2d_clusters (wordvector_fit, clf):
     
 file_name = "small_email.csv"
 data = get_cleaned_data(file_name)
-data = remove_punctuation(data)
-data = tokenize(data)
-data = remove_stop_words(data)
-data = lem_words(data)
-data = get_back_to_text(data)
-wordvector_fit, feature_names = vectorize_messages(data.message)
-clf, labels = do_clustering(wordvector_fit)
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 

@@ -178,7 +178,7 @@ hex_col = ["#e05f14", "#e0dc14", "#2fe014", "#14d2e0", "#d11141", "#00b159",  "#
      dash.dependencies.Input('min_df', 'value'),
      dash.dependencies.Input('max_df', 'value')])
 def update_figure(chunksize, nb_clusters, min_df, max_df):
-    file_name = "small_email.csv"
+
     data = get_cleaned_data(file_name, chunksize=chunksize)
     data = remove_punctuation(data)
     data = tokenize(data)
@@ -214,7 +214,7 @@ def update_figure(chunksize, nb_clusters, min_df, max_df):
             x = [centroidpoint[i, 0]],
             y = [centroidpoint[i, 1]],
             mode = "markers",
-            marker_size = len(data_label)//2,
+            marker_size = 300*len(data_label)/len(labels),
             name = f"Cluster {i}",
             hovertext = hovertext,
             hoverinfo="text",

@@ -1,4 +1,4 @@
-# Projet_Fil_Rouge-IBM : Clustering de document
+# Projet Fil Rouge - IBM : Clustering de document
 
 Ce projet corresponds au projet fil rouge effectué dans le cadre de notre mastère spécialisé BigData à Télécom Paris en partenariat avec IBM.
 L'équipe se compose de quatre membres : 

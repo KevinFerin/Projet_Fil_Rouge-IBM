@@ -16,5 +16,3 @@ env-vars/*
 Dockerfile
 test.env
 emails.csv
-cleaned_small_email.csv
-main.py
